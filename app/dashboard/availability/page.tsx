@@ -49,7 +49,7 @@ export default async function AvailabilityRoute() {
 
       <form action={UpdateAvailabilityAction}>
         <CardContent className="flex flex-col gap-y-4">
-          {data.map((item) => (
+          {data.map((item: any) => (
             <div
               key={item.id}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center gap-4"
