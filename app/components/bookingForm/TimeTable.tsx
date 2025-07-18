@@ -24,7 +24,7 @@ async function getData(userName: string, selectedDate: Date) {
 
   const data = await prisma.availability.findFirst({
     where: {
-      day: currentDay as Prisma.EnumDayFilter,
+      day: currentDay as any,
       User: {
         userName,
       },
@@ -84,6 +84,7 @@ function calculateAvailableTimeSlots(
     new Date()
   );
 
+  //@ts-ignore
   const busySlots = nylasData.data[0].timeSlots.map(
     (slot: { startTime: number; endTime: number }) => ({
       start: fromUnixTime(slot.startTime),

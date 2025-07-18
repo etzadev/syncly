@@ -67,10 +67,17 @@ export default async function MeetingsRoute() {
                 <div className="grid grid-cols-3 justify-between items-center">
                   <div>
                     <p className="text-muted-foreground text-sm">
+                      {/* @ts-ignore */}
                       {format(fromUnixTime(item.when.startTime), "EEE, dd MMM")}
                     </p>
                     <p className="text-muted-foreground text-xs pt-1">
-                      {format(fromUnixTime(item.when.startTime), "hh:mm a")} -{" "}
+                      {
+                        /* @ts-ignore */ format(
+                          fromUnixTime(item.when.startTime),
+                          "hh:mm a"
+                        )
+                      }{" "}
+                      - {/* @ts-ignore */}
                       {format(fromUnixTime(item.when.endTime), "hh:mm a")}
                     </p>
 
@@ -78,6 +85,7 @@ export default async function MeetingsRoute() {
                       <Video className="size-4 mr-2 text-primary" />
                       <a
                         className="text-xs text-primary underline underline-offset-4"
+                        // @ts-ignore
                         href={item.conferencing.details.url}
                         target="_blank"
                         rel="noreferrer"
